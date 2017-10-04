@@ -2,3 +2,58 @@
 Presenter
 =========
 
+Source
+======
+
+The structure of source code is divided by using the following rules:
+
+1. Hardware dependency rule. The source code can be either:
+
+  a) hardware independent code
+  b) hardware dependent code
+
+2. Application specifics rule. The source code can be either:
+
+  a) application agnostic code
+  b) application specific code
+
+The source consists of:
+
++------------------+------------------+------------------+------------------+
+| Directory        | Long name        | Hardware         | Application      |
++==================+==================+==================+==================+
+| ``app``          | application      | independent      | specific         |
++------------------+------------------+------------------+------------------+
+| ``sys``          | system           | dependent        | specific         |
++------------------+------------------+------------------+------------------+
+| ``lib``          | library          | independent      | agnostic         |
++------------------+------------------+------------------+------------------+
+| ``drv``          | driver           | dependent        | agnostic         |
++------------------+------------------+------------------+------------------+
+
+Application directory
+---------------------
+
+This directory shall contain ``main.c`` and ``main.h`` in their respective
+sub-directories.
+
+System directory
+----------------
+
+This directory shall contain:
+
+- start-up code
+- linker scripts
+- initialization code
+- interupt service routines
+- driver or library callbacks
+
+Library directory
+-----------------
+
+Contains libraries and frameworks used by the firmware.
+
+Driver directory
+----------------
+
+Contains drivers and HALs used by the firmware.
