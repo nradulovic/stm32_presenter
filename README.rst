@@ -2,6 +2,17 @@
 Presenter
 =========
 
+Getting the sources
+===================
+
+.. code:: bash
+
+    git clone https://github.com/nradulovic/stm32_presenter presenter
+    cd presenter
+    git submodule update --init
+    cd lib/neon
+    git submodule update --init
+
 Source
 ======
 
