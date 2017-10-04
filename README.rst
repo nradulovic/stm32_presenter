@@ -9,13 +9,13 @@ The structure of source code is divided by using the following rules:
 
 1. Hardware dependency rule. The source code can be either:
 
-  a) hardware independent code
-  b) hardware dependent code
+   - hardware independent code
+   - hardware dependent code
 
 2. Application specifics rule. The source code can be either:
 
-  a) application agnostic code
-  b) application specific code
+   - application agnostic code
+   - application specific code
 
 The source consists of:
 
