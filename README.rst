@@ -40,12 +40,12 @@ sub-directories.
 System directory
 ----------------
 
-This directory shall contain:
+This directory contains:
 
 - start-up code
 - linker scripts
 - initialization code
-- interupt service routines
+- interrupt service routines
 - driver or library callbacks
 
 Library directory
@@ -56,4 +56,10 @@ Contains libraries and frameworks used by the firmware.
 Driver directory
 ----------------
 
-Contains drivers and HALs used by the firmware.
+Contains drivers and HALs used by the firmware:
+
+- CMSIS (from STM, STM32CubeF1, v1.6.0): Cortex Microcontroller System 
+  Interface Standard
+- STM32F1xx_HAL_Driver (from STM, STM32CubeF1, v1.6.0): STM32 HAL
+
+
