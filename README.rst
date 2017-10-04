@@ -14,6 +14,9 @@ Getting the sources
 Source
 ======
 
+Structure
+---------
+
 The structure of source code is divided by using the following rules:
 
 1. Hardware dependency rule. The source code can be either:
@@ -71,4 +74,8 @@ Contains drivers and HALs used by the firmware:
   Interface Standard
 - STM32F1xx_HAL_Driver (from STM, STM32CubeF1, v1.6.0): STM32 HAL
 
+Settings
+--------
 
+Include paths
+- ``sys/include``
