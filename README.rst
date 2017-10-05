@@ -43,14 +43,12 @@ The source consists of:
 | ``drv``          | driver           | dependent        | agnostic         |
 +------------------+------------------+------------------+------------------+
 
-Application directory
----------------------
+**Application directory**
 
 This directory shall contain ``main.c`` and ``main.h`` in their respective
 sub-directories.
 
-System directory
-----------------
+**System directory**
 
 This directory contains:
 
@@ -60,13 +58,11 @@ This directory contains:
 - interrupt service routines
 - driver or library callbacks
 
-Library directory
------------------
+**Library directory**
 
 Contains libraries and frameworks used by the firmware.
 
-Driver directory
-----------------
+**Driver directory**
 
 Contains drivers and HALs used by the firmware:
 
@@ -77,5 +73,10 @@ Contains drivers and HALs used by the firmware:
 Settings
 --------
 
-Include paths
+Include paths:
+
 - ``sys/include``
+- ``app/include``
+- ``lib/neon/eds/include``
+- ``lib/neon/lib/include``
+
