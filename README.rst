@@ -73,6 +73,18 @@ Contains drivers and HALs used by the firmware:
 Settings
 --------
 
+Main file:
+
+- ``app/source/main.c``
+
+Startup file:
+
+- ``sys/assembly/startup_stm32f103xb.S``
+
+Linker script:
+
+- ``sys/linker/stm32f103xb_flash.ld``
+
 Include paths:
 
 - ``sys/include``
