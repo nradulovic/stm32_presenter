@@ -60,7 +60,9 @@ This directory contains:
 
 **Library directory**
 
-Contains libraries and frameworks used by the firmware.
+Contains libraries and frameworks used by the firmware:
+
+- ``neon``: Neon
 
 **Driver directory**
 
@@ -91,4 +93,11 @@ Include paths:
 - ``app/include``
 - ``lib/neon/eds/include``
 - ``lib/neon/lib/include``
+- ``drv/CMSIS/Device/ST/STM32F1xx/Include``
+- ``drv/STM32F1xx_HAL_Driver/Inc``
+
+Macros:
+
+- ``STM32F103xB``
+- ``USE_HAL_DRIVER``
 
