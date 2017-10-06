@@ -28,6 +28,7 @@
 /*========================================================  INCLUDE FILES  ==*/
 
 #include "main.h"
+#include "neon.h"
 
 /*========================================================  LOCAL MACRO's  ==*/
 /*=====================================================  LOCAL DATA TYPES  ==*/
@@ -36,6 +37,13 @@
 /*=====================================================  GLOBAL VARIABLES  ==*/
 /*===========================================  LOCAL FUNCTION DEFINITIONS  ==*/
 /*==========================================  GLOBAL FUNCTION DEFINITIONS  ==*/
+
+struct epa_test_wspace
+{
+    int a;
+};
+
+NEPA_BUNDLE_DEFINE("epa_test", 16, 1, struct epa_test_wspace, NULL, NSM_TYPE_HSM)
 
 int main (void)
 {
