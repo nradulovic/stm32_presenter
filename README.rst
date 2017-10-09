@@ -2,6 +2,22 @@
 Presenter
 =========
 
+Hardware
+========
+
+MCU
+---
+
+This firmware is meant to be used with STM32F103C8T6 MCU. It has enough
+resources to run this firmware nicely.
+
+Display
+-------
+
+For displaying the time the TM1637 module is used. TM1637 Module is using
+simple 2-wire (not I2C) for communication with the MCU. This interface is
+implemented using plain GPIO pins on the MCU.
+
 Getting the sources
 ===================
 
