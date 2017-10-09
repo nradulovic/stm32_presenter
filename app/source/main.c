@@ -28,7 +28,7 @@
 /*========================================================  INCLUDE FILES  ==*/
 
 #include "main.h"
-#include "neon.h"
+#include "neon_eds.h"
 
 /*========================================================  LOCAL MACRO's  ==*/
 /*=====================================================  LOCAL DATA TYPES  ==*/
@@ -43,7 +43,10 @@ struct epa_test_wspace
     int a;
 };
 
-NEPA_BUNDLE_DEFINE("epa_test", 16, 1, struct epa_test_wspace, NULL, NSM_TYPE_HSM)
+static NQUEUE_BUNDLE_DEFINE(epa_test_equeueg, 16);
+static NSM_BUNDLE_DEFINE(epa_test_smh, struct epa_test_wspace, NULL, NSM_TYPE_FSM);
+
+static NEPA_BUNDLE_DEFINE(epa_test, 16, 1, struct epa_test_wspace, NULL, NSM_TYPE_HSM);
 
 int main (void)
 {
