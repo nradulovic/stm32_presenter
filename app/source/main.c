@@ -50,6 +50,8 @@ static NEPA_BUNDLE_DEFINE(epa_test, 16, 1, struct epa_test_wspace, NULL, NSM_TYP
 
 int main (void)
 {
+    HAL_Init();
+
     return (0);
 }
 

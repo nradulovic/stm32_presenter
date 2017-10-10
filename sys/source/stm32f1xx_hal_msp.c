@@ -35,7 +35,7 @@
 /*============================================  LOCAL FUNCTION PROTOTYPES  ==*/
 
 static void hw_error(void);
-static void setup_mcu_clock(void);
+static void setup_clock_mcu(void);
 
 /*======================================================  LOCAL VARIABLES  ==*/
 /*=====================================================  GLOBAL VARIABLES  ==*/
@@ -58,15 +58,11 @@ static void hw_error(void)
  *              * PLLMUL                         = 9
  *              * Flash Latency(WS)              = 0
  */
-static void setup_mcu_clock(void)
+static void setup_clock_mcu(void)
 {
     RCC_ClkInitTypeDef clkinitstruct = {0};
     RCC_OscInitTypeDef oscinitstruct = {0};
 
-    /* Configure PLL ------------------------------------------------------*/
-    /* PLL configuration: PLLCLK = (HSI / 2) * PLLMUL = (8 / 2) * 16 = 64 MHz */
-    /* PREDIV1 configuration: PREDIV1CLK = PLLCLK / HSEPredivValue = 64 / 1 = 64 MHz */
-    /* Enable HSI and activate PLL with HSi_DIV2 as source */
     oscinitstruct.OscillatorType  = RCC_OSCILLATORTYPE_HSE;
     oscinitstruct.HSEState        = RCC_HSE_ON;
     oscinitstruct.HSEPredivValue  = RCC_HSE_PREDIV_DIV2;
@@ -77,10 +73,8 @@ static void setup_mcu_clock(void)
     if (HAL_RCC_OscConfig(&oscinitstruct) != HAL_OK) {
         hw_error();
     }
-
-    /* Select PLL as system clock source and configure the HCLK, PCLK1 and PCLK2 
-    clocks dividers */
-    clkinitstruct.ClockType = (RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2);
+    clkinitstruct.ClockType = (RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_HCLK |
+                               RCC_CLOCKTYPE_PCLK1  | RCC_CLOCKTYPE_PCLK2);
     clkinitstruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
     clkinitstruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
     clkinitstruct.APB2CLKDivider = RCC_HCLK_DIV1;
@@ -95,7 +89,7 @@ static void setup_mcu_clock(void)
 
 void HAL_MspInit(void)
 {
-    setup_mcu_clock();
+    setup_clock_mcu();
 }
 
 
