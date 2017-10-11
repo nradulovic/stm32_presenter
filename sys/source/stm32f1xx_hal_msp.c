@@ -20,8 +20,7 @@
  *
  *//**
  * @file
- * @brief       Short decription
- * @details     Long description
+ * @brief       STM32CubeF1 support file
  * @author      Nenad Radulovic
  *//** @{ */
 

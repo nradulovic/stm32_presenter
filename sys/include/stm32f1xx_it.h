@@ -20,8 +20,8 @@
  *
  *//**
  * @file
- * @brief       Short decription
- * @details     Long description
+ * @brief       STM32CubeF1 interrupt service routines
+ * @details     These routines implement calls to specific HAL functions.
  * @author      Nenad Radulovic
  *//** @{ *//*===============================================================*/
 

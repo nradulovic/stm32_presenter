@@ -20,8 +20,8 @@
  *
  *//**
  * @file
- * @brief       Short decription
- * @details     Long description
+ * @brief       STM32CubeF1 assert handling
+ * @details     STM32 library is using assert macro defined in this file.
  * @author      Nenad Radulovic
  *//** @{ *//*===============================================================*/
 
