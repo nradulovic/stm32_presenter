@@ -27,6 +27,8 @@
 
 /*========================================================  INCLUDE FILES  ==*/
 
+#include <stdbool.h>
+
 #include "main.h"
 #include "stm32f1xx.h"
 
@@ -99,7 +101,7 @@ static void setup_clock_mcu(void)
     clkinitstruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
     clkinitstruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
     clkinitstruct.APB2CLKDivider = RCC_HCLK_DIV1;
-    clkinitstruct.APB1CLKDivider = RCC_HCLK_DIV2
+    clkinitstruct.APB1CLKDivider = RCC_HCLK_DIV2;
 
     if (HAL_RCC_ClockConfig(&clkinitstruct, FLASH_LATENCY_2) != HAL_OK) {
         hw_error();
@@ -108,7 +110,7 @@ static void setup_clock_mcu(void)
 
 static void teardown_clock_mcu()
 {
-    HAL_RCC_DeInit()
+    HAL_RCC_DeInit();
 }
 
 

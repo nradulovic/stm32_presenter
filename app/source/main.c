@@ -27,6 +27,7 @@
 
 /*========================================================  INCLUDE FILES  ==*/
 
+#include "bsp.h"
 #include "main.h"
 #include "neon_eds.h"
 
@@ -50,7 +51,7 @@ static NEPA_BUNDLE_DEFINE(epa_test, 16, 1, struct epa_test_wspace, NULL, NSM_TYP
 
 int main (void)
 {
-    HAL_Init();
+    bsp_init();
 
     return (0);
 }

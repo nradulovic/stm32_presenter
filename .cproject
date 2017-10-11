@@ -92,6 +92,8 @@
 					</folderInfo>
 					<sourceEntries>
 						<entry excluding="lib|drv" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="drv/STM32F1xx_HAL_Driver/Inc"/>
+						<entry excluding="stm32f1xx_hal_timebase_tim_template.c|stm32f1xx_hal_timebase_rtc_alarm_template.c|stm32f1xx_hal_msp_template.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="drv/STM32F1xx_HAL_Driver/Src"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -172,6 +174,8 @@
 					</folderInfo>
 					<sourceEntries>
 						<entry excluding="lib|drv" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="drv/STM32F1xx_HAL_Driver/Inc"/>
+						<entry excluding="stm32f1xx_hal_timebase_tim_template.c|stm32f1xx_hal_timebase_rtc_alarm_template.c|stm32f1xx_hal_msp_template.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="drv/STM32F1xx_HAL_Driver/Src"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
