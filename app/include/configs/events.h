@@ -20,42 +20,32 @@
  *
  *//**
  * @file
- * @brief       Main file
- * @details     This is where it all begins.
+ * @brief       Short decription
+ * @details     Long description
  * @author      Nenad Radulovic
- *//** @{ */
+ *//** @{ *//*===============================================================*/
+
+#ifndef APP_INCLUDE_CONFIGS_EVENTS_H_
+#define APP_INCLUDE_CONFIGS_EVENTS_H_
 
 /*========================================================  INCLUDE FILES  ==*/
+/*==============================================================  MACRO's  ==*/
 
-#include "neon_eds.h"
+#define CONFIG_EVENTS_BASE_MAIN			1000
 
-#include "bsp.h"
-#include "main.h"
-#include "epa_main.h"
-
-/*========================================================  LOCAL MACRO's  ==*/
-/*=====================================================  LOCAL DATA TYPES  ==*/
-/*============================================  LOCAL FUNCTION PROTOTYPES  ==*/
-/*======================================================  LOCAL VARIABLES  ==*/
-
-static NHEAP_BUNDLE_DEFINE(event_memory, 10240);
-
+/*-----------------------------------------------------  C++ extern begin  --*/
+#ifdef __cplusplus
+extern "C" {
+#endif
+/*===========================================================  DATA TYPES  ==*/
 /*=====================================================  GLOBAL VARIABLES  ==*/
-/*===========================================  LOCAL FUNCTION DEFINITIONS  ==*/
-/*==========================================  GLOBAL FUNCTION DEFINITIONS  ==*/
-
-int main (void)
-{
-    bsp_init();
-
-    nevent_register_mem(NHEAP_FROM_BUNDLE(&event_memory));
-    nepa_register(epa_main);
-    nthread_schedule();
-
-    return (0);
+/*==================================================  FUNCTION PROTOTYPES  ==*/
+/*-------------------------------------------------------  C++ extern end  --*/
+#ifdef __cplusplus
 }
-
+#endif
 /*===============================*//** @cond *//*==  CONFIGURATION ERRORS  ==*/
 /** @endcond *//** @} *//*===================================================*
- * END of main.c
+ * END of events.h
  *===========================================================================*/
+#endif /* APP_INCLUDE_CONFIGS_EVENTS_H_ */

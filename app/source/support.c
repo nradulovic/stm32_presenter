@@ -28,6 +28,7 @@
 /*========================================================  INCLUDE FILES  ==*/
 
 #include "stm32_assert.h"
+#include "base/debug.h"
 
 /*========================================================  LOCAL MACRO's  ==*/
 /*=====================================================  LOCAL DATA TYPES  ==*/
@@ -39,6 +40,20 @@
 
 void assert_failed(uint8_t * file, uint32_t line)
 {
+	(void)file;
+	(void)line;
+
+	for (;;);
+}
+
+void hook_at_assert(const char * file, const char * fn, uint32_t line,
+    const char * expr)
+{
+	(void)file;
+	(void)fn;
+	(void)line;
+	(void)expr;
+
 	for (;;);
 }
 

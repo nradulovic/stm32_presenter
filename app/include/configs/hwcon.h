@@ -20,39 +20,26 @@
  *
  *//**
  * @file
- * @brief       Neon configuration file
- * @details     Configuration file for Neon EDS
+ * @brief       Hardware configuration header
+ * @details     This header defines all hardware variables need to accomodate
+ *              the hardware. This is done to allow for easy firmware
+ *              reconfiguration to different hardware layout.
+ *
+ *              The configuration is mostly done by macros.
  * @author      Nenad Radulovic
  *//** @{ *//*===============================================================*/
 
-#ifndef NEON_EDS_APP_CONFIG_H_
-#define NEON_EDS_APP_CONFIG_H_
+#ifndef APP_CONFIGS_HWCON_H_
+#define APP_CONFIGS_HWCON_H_
 
 /*========================================================  INCLUDE FILES  ==*/
-
-#include "configs/hwcon.h"
-
 /*==============================================================  MACRO's  ==*/
 
-#define CONFIG_DEBUG                    1
-#define CONFIG_API_VALIDATION           1
-#define CONFIG_ASSERT_INTERNAL          1
-
-#define CONFIG_EVENT_SIZE               1
-
-#define CONFIG_CORE_TIMER_SOURCE        2
-
 /* NOTE:
- * Timer 5 is allocated to APB1 with prescaler 2
+ * Priority levels are arranged as per ARM Cortex-M NVIC datasheet: the lower
+ * the value the higher the priority of IRQ is.
  */
-#define CONFIG_CORE_TIMER_CLOCK_FREQ    (SystemCoreClock / 2)
-
-#define CONFIG_CORE_TIMER_EVENT_FREQ    1000
-
-/* NOTE:
- * Some ISR will have higher level of priority than Neon ISRs
- */
-#define CONFIG_CORE_LOCK_MAX_LEVEL      NCORE_CODE_TO_LOCK(HWCON_IRQ_PRIO_NEON)
+#define HWCON_IRQ_PRIO_NEON             6
 
 /*-----------------------------------------------------  C++ extern begin  --*/
 #ifdef __cplusplus
@@ -67,6 +54,6 @@ extern "C" {
 #endif
 /*===============================*//** @cond *//*==  CONFIGURATION ERRORS  ==*/
 /** @endcond *//** @} *//*===================================================*
- * END of neon_eds_app_config.h
+ * END of hwcon.h
  *===========================================================================*/
-#endif /* NEON_EDS_APP_CONFIG_H_ */
+#endif /* APP_CONFIGS_HWCON_H_ */

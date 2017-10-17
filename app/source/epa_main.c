@@ -20,42 +20,53 @@
  *
  *//**
  * @file
- * @brief       Main file
- * @details     This is where it all begins.
+ * @brief       Main EPA implementation
+ * @details     Main EPA is invoking all other EPAs in the system.
  * @author      Nenad Radulovic
  *//** @{ */
 
 /*========================================================  INCLUDE FILES  ==*/
 
-#include "neon_eds.h"
-
-#include "bsp.h"
-#include "main.h"
 #include "epa_main.h"
+#include "neon_eds.h"
 
 /*========================================================  LOCAL MACRO's  ==*/
 /*=====================================================  LOCAL DATA TYPES  ==*/
+
+struct main_wspace
+{
+	int a;
+};
+
 /*============================================  LOCAL FUNCTION PROTOTYPES  ==*/
+
+static naction state_init(struct nsm *, const struct nevent *);
+
 /*======================================================  LOCAL VARIABLES  ==*/
 
-static NHEAP_BUNDLE_DEFINE(event_memory, 10240);
+static NEPA_BUNDLE_DEFINE(main, EPA_MAIN_QUEUE_SIZE, EPA_MAIN_PRIORITY,
+    struct main_wspace, state_init, NSM_TYPE_FSM);
 
 /*=====================================================  GLOBAL VARIABLES  ==*/
+
+struct nepa * 					epa_main = NEPA_FROM_BUNDLE(&main);
+
 /*===========================================  LOCAL FUNCTION DEFINITIONS  ==*/
-/*==========================================  GLOBAL FUNCTION DEFINITIONS  ==*/
 
-int main (void)
+static naction state_init(struct nsm * sm, const struct nevent * event)
 {
-    bsp_init();
+	switch (nevent_id(event)) {
+		case NSM_INIT: {
+			return (naction_handled());
+		}
+		default: {
+			return (naction_ignored());
+		}
+	}
+};
 
-    nevent_register_mem(NHEAP_FROM_BUNDLE(&event_memory));
-    nepa_register(epa_main);
-    nthread_schedule();
-
-    return (0);
-}
-
+/*==========================================  GLOBAL FUNCTION DEFINITIONS  ==*/
 /*===============================*//** @cond *//*==  CONFIGURATION ERRORS  ==*/
 /** @endcond *//** @} *//*===================================================*
- * END of main.c
+ * END of epa_main.c
  *===========================================================================*/

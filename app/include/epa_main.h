@@ -20,42 +20,43 @@
  *
  *//**
  * @file
- * @brief       Main file
- * @details     This is where it all begins.
+ * @brief       Short decription
+ * @details     Long description
  * @author      Nenad Radulovic
- *//** @{ */
+ *//** @{ *//*===============================================================*/
+
+#ifndef APP_INCLUDE_EPA_MAIN_H_
+#define APP_INCLUDE_EPA_MAIN_H_
 
 /*========================================================  INCLUDE FILES  ==*/
 
-#include "neon_eds.h"
+#include "configs/events.h"
 
-#include "bsp.h"
-#include "main.h"
-#include "epa_main.h"
+/*==============================================================  MACRO's  ==*/
 
-/*========================================================  LOCAL MACRO's  ==*/
-/*=====================================================  LOCAL DATA TYPES  ==*/
-/*============================================  LOCAL FUNCTION PROTOTYPES  ==*/
-/*======================================================  LOCAL VARIABLES  ==*/
+#define EPA_MAIN_PRIORITY				31
+#define EPA_MAIN_QUEUE_SIZE				16
+#define EPA_MAIN_EVENT_BASE				CONFIG_EVENTS_BASE_MAIN
 
-static NHEAP_BUNDLE_DEFINE(event_memory, 10240);
+/*-----------------------------------------------------  C++ extern begin  --*/
+#ifdef __cplusplus
+extern "C" {
+#endif
+/*===========================================================  DATA TYPES  ==*/
+
+struct epa_main;
 
 /*=====================================================  GLOBAL VARIABLES  ==*/
-/*===========================================  LOCAL FUNCTION DEFINITIONS  ==*/
-/*==========================================  GLOBAL FUNCTION DEFINITIONS  ==*/
 
-int main (void)
-{
-    bsp_init();
+extern struct nepa *			epa_main;
 
-    nevent_register_mem(NHEAP_FROM_BUNDLE(&event_memory));
-    nepa_register(epa_main);
-    nthread_schedule();
-
-    return (0);
+/*==================================================  FUNCTION PROTOTYPES  ==*/
+/*-------------------------------------------------------  C++ extern end  --*/
+#ifdef __cplusplus
 }
-
+#endif
 /*===============================*//** @cond *//*==  CONFIGURATION ERRORS  ==*/
 /** @endcond *//** @} *//*===================================================*
- * END of main.c
+ * END of epa_main.h
  *===========================================================================*/
+#endif /* APP_INCLUDE_EPA_MAIN_H_ */
