@@ -17,7 +17,7 @@
 #
 
 # Relative path to Neon common build directory.
-WS = ..
+WS = ../..
 
 # Common build script, contains common build rules and variables.
 include $(WS)/build/common.mk
@@ -31,12 +31,12 @@ include $(WS)/lib/build/nport.mk
 PROJECT_NAME := presenter
 
 # List additional C header include paths.
-CC_INCLUDES += apps/$(PROJECT_NAME)/app/include
+CC_INCLUDES += apps/app_presenter/app/include
 
 # List additional C source files. Files which are not listed here will not be
 # compiled.
-CC_SOURCES += apps/$(PROJECT_NAME)/app/source/main.c
-CC_SOURCES += apps/$(PROJECT_NAME)/app/source/support.c
+CC_SOURCES += apps/app_presenter/app/source/main.c
+CC_SOURCES += apps/app_presenter/app/source/support.c
 
 # List additional archives. Use this when using an external static archive.
 AR_LIBS +=
